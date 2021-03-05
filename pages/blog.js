@@ -1,7 +1,11 @@
+import Link from 'next/link'
+
 export default function Blog () {
     return (
-        <>
-        Oh hello there, you have made it to the blog!
-        </>
+        <h2>
+        <Link href="/">
+          <a>Click here to return home!</a>
+        </Link>
+      </h2>
     )
 }
