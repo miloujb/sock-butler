@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import Prismic from 'prismic-javascript'
-import { Client } from "../prismic-config"
+import { client } from "../prismic-config"
 import {RichText} from "prismic-reactjs"
 import styles from '../styles/Home.module.css'
 
@@ -28,6 +28,9 @@ export default function Blog ( { posts } ) {
                     {RichText.render(post.data.title)}
                   </h3>
                 </Link>
+                <div>
+                  {RichText.render(post.data.description)}
+                  </div>
               </div>
             ))}
           </div>
@@ -41,14 +44,14 @@ export default function Blog ( { posts } ) {
 // functions
 
 export async function getServerSideProps() {
-  const posts = await Client().query(
+  const posts = await client().query(
     Prismic.Predicates.at("document.type", "post")
   );
  
 
   return {
-    props: {
-      posts: posts,
-    },
+      props: {
+        posts
+      } 
   };
 }

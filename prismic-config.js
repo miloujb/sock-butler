@@ -6,7 +6,7 @@ export const accessToken = "";
 
 //create client
 
-export const Client = (req = null) =>
+export const client = (req = null) =>
   Prismic.client(apiEndpoint, createClientOptions(req, accessToken));
 
 const createClientOptions = (req = null, prismicAccessToken = null) => {
