@@ -1,18 +1,7 @@
-import {AuthProvider} from "../auth"
-import {ThemeProvider, CSSReset} from "@chakra-ui/core"
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-  return
-  (
-    <ThemeProvider>
-      <CSSReset>
-      <AuthProvider>
-      <Component {...pageProps} />
-    </AuthProvider>
-      </CSSReset>
-    </ThemeProvider>
-    
-  )
+  return <Component {...pageProps} />
 }
 
 export default MyApp
