@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Prismic from 'prismic-javascript'
+
+
 import styles from '../styles/Home.module.css'
-import { Client } from "../prismic-config"
+
 
 export default function Home() {
   return (
@@ -33,16 +34,3 @@ export default function Home() {
   )
 }
 
-// functions
-
-export async function getServerSideProps() {
-  const posts = await Client().query(
-    Prismic.Predicates.at("document.type", "post")
-  )
-
-  console.log(posts)
-
-  return {
-    props: {}
-  }
-}
