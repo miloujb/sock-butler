@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import {Client} from "../../prismic-config"
+import {RichText} from "prismic-reactjs"
 
-export default function BlogID() {
+
+export default function Post({post}) {
     return (
         <>
         <h1>
@@ -15,6 +18,25 @@ export default function BlogID() {
                 </a>
             </Link>
         </h2>
+        <div>
+            <h1>
+            {
+                RichText.render(post.data.title)
+
+            }
+            </h1>
+        </div>
         </>
     )
+}
+
+//called on every request
+
+export async function getServerSideProps(context) {
+     const post = await Client().getbyID('post', context.query.post)
+     return {
+         props: {
+             post : post
+         }
+     }
 }

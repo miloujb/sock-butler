@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-
-
 import styles from '../styles/Home.module.css'
 
 
@@ -21,10 +19,8 @@ export default function Home() {
         <p className={styles.description}>
           Welcome! Why not start by looking at our{' '}<Link href="/blog"><a>blog?</a></Link>
         </p>
-
-        <div className={styles.grid}>
-
-        </div>
+        <br />
+        <p>Log in{" "}<Link href="/login"><a>here</a></Link>{" "} to see your account details</p>
       </main>
 
       <footer className={styles.footer}>
