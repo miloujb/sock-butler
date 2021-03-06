@@ -2,11 +2,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import React from "react"
-import {useAuth} from "../auth"
 
 
 export default function Home() {
-  const {user} = useAuth();
   return (
     <div className={styles.container}>
       <Head>
