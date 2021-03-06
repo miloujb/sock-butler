@@ -1,0 +1,9 @@
+import React from "React"
+import {Flex} from "@chakra-ui/core"
+
+export default function Container({children}) {
+    return(
+        <><Flex as="main" justifyContent="center" flexDirection="column" px={8}>{children}</Flex>
+        </>
+    )
+}
