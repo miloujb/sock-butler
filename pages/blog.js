@@ -41,17 +41,4 @@ export default function Blog ( { posts } ) {
     )
 }
 
-// functions
 
-export async function getServerSideProps() {
-  const posts = await client().query(
-    Prismic.Predicates.at("document.type", "post")
-  );
- 
-
-  return {
-      props: {
-        posts
-      } 
-  };
-}
