@@ -1,18 +1,16 @@
 import Link from "next/link"
 
-export default function () {
+export default function Account () {
     return (
         <div>
         <h1>
-            welcome to your account!
+            Welcome to your account!
         </h1>
-        <h2>
-            Click{" "}
-            <Link href="/">
-                <a>here</a>{" "}
-                to return to the home page
-            </Link>
-        </h2>
+      <>
+      <h2>
+          Please click{" "}<Link href="/"><a>here</a></Link>{" "}to return to the homepage!
+      </h2>
+      </>
         </div>
     )
 }

@@ -1,8 +1,10 @@
+import Link from "next/link"
+
 export default function Login(){
     return (
-        <h1>
-        hello
-    </h1>
+   
+      <Link href="/account"><a>Login</a></Link>
+  
     
     )
     

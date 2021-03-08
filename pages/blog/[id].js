@@ -1,31 +1,34 @@
 import Link from 'next/link'
-import Prismic from 'prismic-javascript'
 import {client} from "../../prismic-config"
-import {RichText, Date} from "prismic-reactjs"
+import {RichText} from "prismic-reactjs"
 
 
- export default function Post() {
-     return (
-        <div>
-        <Link href="/">
-            <a>Back to the home page</a>
-        </Link>
-        {RichText.render(props.post.data.title)}
-        <span>{Date(props.post.data.date)}</span>
-        {RichText.render(props.post.data.article)}
-    </div>
-     )
+ export default function Post({ post }) {
+   return (
+     <div>
+       <h1>
+       {RichText.render(post.data.title)}
+         </h1>
+         <h2>
+           {RichText.render(post.data.description)}
+         </h2>
+         <p>{RichText.render(post.data.article)}</p>
+         <p>Click{" "}<Link href="/">
+         <a>here</a>
+         {" "} to return to the home page
+         </Link></p>
+     </div>
+   )
+
  }
     
 
 
-
- export async function getServerSideProps(context) {
-    const post = await Client().getByUID("post", context.query.post);
-  
+export async function getServerSideProps(context) {
+  const post = await client().getByUID("post", context.query.post) 
     return {
       props: {
         post: post
-      },
-    };
-  }
+      }
+    }
+}

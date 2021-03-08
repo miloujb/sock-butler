@@ -24,12 +24,14 @@ export default function Blog ( { posts } ) {
             {posts.results.map((post, index) => (
               <div key={post.uid}>
                 <Link href={`blog/${post.uid}`}>
-                  <h3>
+                  <h3 className={styles.description}>
                     {RichText.render(post.data.title)}
                   </h3>
                 </Link>
                 <div>
+                  <p className={styles.description}>
                   {RichText.render(post.data.description)}
+                  </p>
                   </div>
               </div>
             ))}
